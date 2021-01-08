@@ -1,0 +1,60 @@
+# Standards: 1.2
+---
+# @var kubectl_version:description: Version of the kubectl release to install
+kubectl_version: 1.18.8
+
+# @var kubectl_download:description: Download URL for the kubectl release
+kubectl_download: http://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/bin/linux/amd64/kubectl
+
+# @var kubectl_checksum:description: Checksum for the kubeclt release
+kubectl_checksum: sha256:a076f5eff0710de94d1eb77bee458ea43b8f4d9572bbb3a3aec1edf0dde0a3e7
+
+# @var kubectl_general_configs:description: List of general configs
+# @var kubectl_general_configs:example: >
+# kubectl_general_configs:
+#   - name: global
+#     path: /etc/kubernetes/config
+#     owner: root
+#     group: root
+#     mode: u=rwX,g=rX,o=rX
+#     current: foobar
+#     clusters:
+#       - name: foobar
+#         ca:  ...
+#         server: https://10.13.37.1:6443
+#     users:
+#       - name: admin
+#         cert: ...
+#         key: ...
+#     contexts:
+#       - name: foobar
+#         cluster: foobar
+#         user: admin
+# @end
+kubectl_general_configs: []
+
+# @var kubectl_extra_configs:description: List of extra configs
+# @var kubectl_extra_configs:example: >
+# kubectl_extra_configs:
+#   - name: global
+#     path: /etc/kubernetes/config
+#     owner: root
+#     group: root
+#     mode: u=rwX,g=rX,o=rX
+#     current: foobar
+#     clusters:
+#       - name: foobar
+#         ca:  ...
+#         server: https://10.13.37.1:6443
+#     users:
+#       - name: admin
+#         cert: ...
+#         key: ...
+#     contexts:
+#       - name: foobar
+#         cluster: foobar
+#         user: admin
+# @end
+kubectl_extra_configs: []
+
+...

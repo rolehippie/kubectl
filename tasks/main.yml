@@ -1,0 +1,66 @@
+# Standards: 1.2
+---
+- name: Install required packages
+  loop:
+    - socat
+  package:
+    name: "{{ item }}"
+    state: present
+  tags:
+    - kubectl
+
+- name: Download release tarball
+  get_url:
+    url: '{{ kubectl_download }}'
+    checksum: '{{ kubectl_checksum }}'
+    dest: /usr/bin/kubectl
+    mode: u=rwx,g=x,o=x
+  tags:
+    - kubectl
+
+- name: Create kubeconfig directories
+  loop: "{{ kubectl_general_configs + kubectl_extra_configs }}"
+  loop_control:
+    label: "{{ item.name }}"
+  file:
+    path: "{{ item.path | dirname }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('u=rwx,g=rx,o=') }}"
+    state: directory
+  tags:
+    - kubectl
+
+- name: Create kubeconfig files
+  when: item.state | default('present') == 'present'
+  loop: "{{ kubectl_general_configs + kubectl_extra_configs }}"
+  loop_control:
+    label: "{{ item.name }}"
+  template:
+    src: kubeconfig.j2
+    dest: "{{ item.path }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('u=rwx,g=rx,o=') }}"
+  tags:
+    - kubectl
+
+- name: Remove kubeconfig files
+  when: item.state | default('present') == 'absent'
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  tags:
+    - kubectl
+
+- name: Write profile script
+  template:
+    src: profile.j2
+    dest: /etc/profile.d/kubectl.sh
+    owner: root
+    group: root
+    mode: u=rwx,g=rx,o=rx
+  tags:
+    - kubectl
+
+...
