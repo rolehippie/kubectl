@@ -14,7 +14,25 @@
     url: '{{ kubectl_download }}'
     checksum: '{{ kubectl_checksum }}'
     dest: /usr/bin/kubectl
-    mode: u=rwx,g=x,o=x
+    mode: u=rwx,g=rx,o=rx
+  tags:
+    - kubectl
+
+- name: Download ctx plugin
+  get_url:
+    url: '{{ kubectl_ctx_download }}'
+    checksum: '{{ kubectl_ctx_checksum }}'
+    dest: /usr/bin/kubectl-ctx
+    mode: u=rwx,g=rx,o=rx
+  tags:
+    - kubectl
+
+- name: Download ns plugin
+  get_url:
+    url: '{{ kubectl_ns_download }}'
+    checksum: '{{ kubectl_ns_checksum }}'
+    dest: /usr/bin/kubectl-ns
+    mode: u=rwx,g=rx,o=rx
   tags:
     - kubectl
 

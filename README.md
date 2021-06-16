@@ -14,9 +14,17 @@ Building and improving this Ansible role have been sponsored by my employer **Pr
 
 * [Default Variables](#default-variables)
   * [kubectl_checksum](#kubectl_checksum)
+  * [kubectl_ctx_checksum](#kubectl_ctx_checksum)
+  * [kubectl_ctx_download](#kubectl_ctx_download)
+  * [kubectl_ctx_install](#kubectl_ctx_install)
+  * [kubectl_ctx_version](#kubectl_ctx_version)
   * [kubectl_download](#kubectl_download)
   * [kubectl_extra_configs](#kubectl_extra_configs)
   * [kubectl_general_configs](#kubectl_general_configs)
+  * [kubectl_ns_checksum](#kubectl_ns_checksum)
+  * [kubectl_ns_download](#kubectl_ns_download)
+  * [kubectl_ns_install](#kubectl_ns_install)
+  * [kubectl_ns_version](#kubectl_ns_version)
   * [kubectl_version](#kubectl_version)
 * [Dependencies](#dependencies)
 * [License](#license)
@@ -28,12 +36,52 @@ Building and improving this Ansible role have been sponsored by my employer **Pr
 
 ### kubectl_checksum
 
-Checksum for the kubeclt release
+Checksum for the kubectl release
 
 #### Default value
 
 ```YAML
 kubectl_checksum: sha256:a076f5eff0710de94d1eb77bee458ea43b8f4d9572bbb3a3aec1edf0dde0a3e7
+```
+
+### kubectl_ctx_checksum
+
+Checksum for the kubectl ctx plugin release
+
+#### Default value
+
+```YAML
+kubectl_ctx_checksum: sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e688fb8089fd4900
+```
+
+### kubectl_ctx_download
+
+Download URL for the kubectl ctx plugin release
+
+#### Default value
+
+```YAML
+kubectl_ctx_download: https://github.com/ahmetb/kubectx/releases/download/v0.9.3/kubectx
+```
+
+### kubectl_ctx_install
+
+Install the kubectl ctx plugin
+
+#### Default value
+
+```YAML
+kubectl_ctx_install: true
+```
+
+### kubectl_ctx_version
+
+Version of the kubectl ctx plugin release to install
+
+#### Default value
+
+```YAML
+kubectl_ctx_version: 0.9.3
 ```
 
 ### kubectl_download
@@ -113,6 +161,46 @@ kubectl_general_configs:
       - name: foobar
         cluster: foobar
         user: admin
+```
+
+### kubectl_ns_checksum
+
+Checksum for the kubectl ns plugin release
+
+#### Default value
+
+```YAML
+kubectl_ns_checksum: sha256:509c97c0882e688ae8fad8aa13524cc7c003e4883db447a905bdb47d64c13bdc
+```
+
+### kubectl_ns_download
+
+Download URL for the kubectl ns plugin release
+
+#### Default value
+
+```YAML
+kubectl_ns_download: https://github.com/ahmetb/kubectx/releases/download/v0.9.3/kubens
+```
+
+### kubectl_ns_install
+
+Install the kubectl ns plugin
+
+#### Default value
+
+```YAML
+kubectl_ns_install: true
+```
+
+### kubectl_ns_version
+
+Version of the kubectl ns plugin release to install
+
+#### Default value
+
+```YAML
+kubectl_ns_version: 0.9.3
 ```
 
 ### kubectl_version
