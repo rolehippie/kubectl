@@ -2,4 +2,6 @@ if [[ -f ${HOME}/.kube/config ]]; then
     export KUBECONFIG=${HOME}/.kube/config
 elif [[ -f /etc/kubernetes/admin.conf ]]; then
     export KUBECONFIG=/etc/kubernetes/admin.conf
+elif [[ -f /etc/rancher/rke2/rke2.yaml ]]; then
+    export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 fi
