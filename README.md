@@ -1,34 +1,35 @@
 # kubectl
 
-[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/kubectl) [![Testing Build](https://github.com/rolehippie/kubectl/workflows/testing/badge.svg)](https://github.com/rolehippie/kubectl/actions?query=workflow%3Atesting) [![Readme Build](https://github.com/rolehippie/kubectl/workflows/readme/badge.svg)](https://github.com/rolehippie/kubectl/actions?query=workflow%3Areadme) [![Galaxy Build](https://github.com/rolehippie/kubectl/workflows/galaxy/badge.svg)](https://github.com/rolehippie/kubectl/actions?query=workflow%3Agalaxy) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/kubectl)](https://github.com/rolehippie/kubectl/blob/master/LICENSE) 
+[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/kubectl) [![Testing Build](https://github.com/rolehippie/kubectl/workflows/testing/badge.svg)](https://github.com/rolehippie/kubectl/actions?query=workflow%3Atesting) [![Readme Build](https://github.com/rolehippie/kubectl/workflows/readme/badge.svg)](https://github.com/rolehippie/kubectl/actions?query=workflow%3Areadme) [![Galaxy Build](https://github.com/rolehippie/kubectl/workflows/galaxy/badge.svg)](https://github.com/rolehippie/kubectl/actions?query=workflow%3Agalaxy) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/kubectl)](https://github.com/rolehippie/kubectl/blob/master/LICENSE)
 
-Ansible role to install and configure the Kubernetes CLI. 
+Ansible role to install and configure the Kubernetes CLI.
 
-## Sponsor 
+## Sponsor
 
-[![Proact Deutschland GmbH](https://proact.eu/wp-content/uploads/2020/03/proact-logo.png)](https://proact.eu) 
+[![Proact Deutschland GmbH](https://proact.eu/wp-content/uploads/2020/03/proact-logo.png)](https://proact.eu)
 
 Building and improving this Ansible role have been sponsored by my employer **Proact Deutschland GmbH**.
 
 ## Table of content
 
-* [Default Variables](#default-variables)
-  * [kubectl_checksum](#kubectl_checksum)
-  * [kubectl_ctx_checksum](#kubectl_ctx_checksum)
-  * [kubectl_ctx_download](#kubectl_ctx_download)
-  * [kubectl_ctx_install](#kubectl_ctx_install)
-  * [kubectl_ctx_version](#kubectl_ctx_version)
-  * [kubectl_download](#kubectl_download)
-  * [kubectl_extra_configs](#kubectl_extra_configs)
-  * [kubectl_general_configs](#kubectl_general_configs)
-  * [kubectl_ns_checksum](#kubectl_ns_checksum)
-  * [kubectl_ns_download](#kubectl_ns_download)
-  * [kubectl_ns_install](#kubectl_ns_install)
-  * [kubectl_ns_version](#kubectl_ns_version)
-  * [kubectl_version](#kubectl_version)
-* [Dependencies](#dependencies)
-* [License](#license)
-* [Author](#author)
+- [Default Variables](#default-variables)
+  - [kubectl_checksum](#kubectl_checksum)
+  - [kubectl_ctx_checksum](#kubectl_ctx_checksum)
+  - [kubectl_ctx_download](#kubectl_ctx_download)
+  - [kubectl_ctx_install](#kubectl_ctx_install)
+  - [kubectl_ctx_version](#kubectl_ctx_version)
+  - [kubectl_download](#kubectl_download)
+  - [kubectl_extra_configs](#kubectl_extra_configs)
+  - [kubectl_general_configs](#kubectl_general_configs)
+  - [kubectl_ns_checksum](#kubectl_ns_checksum)
+  - [kubectl_ns_download](#kubectl_ns_download)
+  - [kubectl_ns_install](#kubectl_ns_install)
+  - [kubectl_ns_version](#kubectl_ns_version)
+  - [kubectl_version](#kubectl_version)
+- [Discovered Tags](#discovered-tags)
+- [Dependencies](#dependencies)
+- [License](#license)
+- [Author](#author)
 
 ---
 
@@ -213,9 +214,14 @@ Version of the kubectl release to install
 kubectl_version: 1.18.8
 ```
 
+## Discovered Tags
+
+**_kubectl_**
+
+
 ## Dependencies
 
-* None
+- None
 
 ## License
 
