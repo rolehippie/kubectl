@@ -18,6 +18,7 @@ Building and improving this Ansible role have been sponsored by my current and p
   - [kubectl_ctx_version](#kubectl_ctx_version)
   - [kubectl_download](#kubectl_download)
   - [kubectl_extra_configs](#kubectl_extra_configs)
+  - [kubectl_from_repository](#kubectl_from_repository)
   - [kubectl_general_configs](#kubectl_general_configs)
   - [kubectl_ns_checksum](#kubectl_ns_checksum)
   - [kubectl_ns_download](#kubectl_ns_download)
@@ -60,7 +61,8 @@ Download URL for the kubectl ctx plugin release
 #### Default value
 
 ```YAML
-kubectl_ctx_download: https://github.com/ahmetb/kubectx/releases/download/v0.9.3/kubectx
+kubectl_ctx_download: https://github.com/ahmetb/kubectx/releases/download/v{{ kubectl_ctx_version
+  }}/kubectx
 ```
 
 ### kubectl_ctx_install
@@ -128,6 +130,14 @@ kubectl_extra_configs:
         user: admin
 ```
 
+### kubectl_from_repository
+
+#### Default value
+
+```YAML
+kubectl_from_repository: false
+```
+
 ### kubectl_general_configs
 
 List of general configs
@@ -179,7 +189,8 @@ Download URL for the kubectl ns plugin release
 #### Default value
 
 ```YAML
-kubectl_ns_download: https://github.com/ahmetb/kubectx/releases/download/v0.9.3/kubens
+kubectl_ns_download: https://github.com/ahmetb/kubectx/releases/download/v{{ kubectl_ns_version
+  }}/kubens
 ```
 
 ### kubectl_ns_install
