@@ -6,6 +6,9 @@ kubectl_from_repository: False
 # @var kubectl_version:description: Version of the kubectl release to install
 kubectl_version: 1.18.8
 
+# @var kubectl_fixed_version:description: Pin version if installed from repository
+kubectl_fixed_version: False
+
 # @var kubectl_download:description: Download URL for the kubectl release
 kubectl_download: http://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/bin/linux/amd64/kubectl
 

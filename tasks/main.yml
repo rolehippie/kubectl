@@ -19,6 +19,23 @@
   tags:
     - kubectl
 
+- name: Pin package version
+  when:
+    - kubectl_from_repository
+    - kubectl_fixed_version
+  copy:
+    content: |
+      Explantion: Pin added by kubectl role
+      Package: kubectl
+      Pin: version {{ kubectl_version }}*
+      Pin-Priority: 1000
+    dest: /etc/apt/preferences.d/kubectl
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  tags:
+    - kubectl
+
 - name: Install required packages
   loop: "{{ ['kubectl', 'socat'] if kubectl_from_repository else ['socat'] }}"
   package:
