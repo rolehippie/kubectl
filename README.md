@@ -18,6 +18,7 @@ Building and improving this Ansible role have been sponsored by my current and p
   - [kubectl_ctx_version](#kubectl_ctx_version)
   - [kubectl_download](#kubectl_download)
   - [kubectl_extra_configs](#kubectl_extra_configs)
+  - [kubectl_fixed_version](#kubectl_fixed_version)
   - [kubectl_from_repository](#kubectl_from_repository)
   - [kubectl_general_configs](#kubectl_general_configs)
   - [kubectl_ns_checksum](#kubectl_ns_checksum)
@@ -128,6 +129,16 @@ kubectl_extra_configs:
       - name: foobar
         cluster: foobar
         user: admin
+```
+
+### kubectl_fixed_version
+
+Pin version if installed from repository
+
+#### Default value
+
+```YAML
+kubectl_fixed_version: false
 ```
 
 ### kubectl_from_repository
