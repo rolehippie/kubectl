@@ -1,18 +1,46 @@
 # Standards: 1.2
 ---
-- name: Download repo key
+- name: Remove legacy key
   when: kubectl_from_repository
   apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     id: 59FE0256827269DC81578F928B57C5C2836F4BEB
-    state: present
+    state: absent
+  tags:
+    - kubectl
+
+- name: Remove legacy repo
+  when: kubectl_from_repository
+  apt_repository:
+    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+    filename: kubernetes
+    update_cache: False
+    state: absent
+  tags:
+    - kubectl
+
+- name: Create keyrings dir
+  when: kubectl_from_repository
+  file:
+    path: /etc/apt/keyrings
+    owner: root
+    group: root
+    mode:
+    state: directory
+  tags:
+    - kubectl
+
+- name: Download repo key
+  when: kubectl_from_repository
+  get_url:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    dest: /etc/apt/keyrings/kubernetes-archive-keyring.gpg
   tags:
     - kubectl
 
 - name: Add apt repository
   when: kubectl_from_repository
   apt_repository:
-    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+    repo: deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] http://apt.kubernetes.io/ kubernetes-xenial main
     filename: kubernetes
     update_cache: True
     state: present
