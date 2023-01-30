@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/rolehippie/kubectl/compare/v1.0.0...v1.1.0) (2023-01-30)
+
+
+### Features
+
+* replace old apt key handling ([7df9402](https://github.com/rolehippie/kubectl/commit/7df9402b3486c6406b0c715f1246894d5423214a))
+
 ## 1.0.0 (2023-01-05)
 
 
