@@ -27,6 +27,7 @@ Building and improving this Ansible role have been sponsored by my current and p
   - [kubectl_fixed_version](#kubectl_fixed_version)
   - [kubectl_from_repository](#kubectl_from_repository)
   - [kubectl_general_configs](#kubectl_general_configs)
+  - [kubectl_keyring](#kubectl_keyring)
   - [kubectl_ns_checksum](#kubectl_ns_checksum)
   - [kubectl_ns_download](#kubectl_ns_download)
   - [kubectl_ns_install](#kubectl_ns_install)
@@ -192,6 +193,16 @@ kubectl_general_configs:
       - name: foobar
         cluster: foobar
         user: admin
+```
+
+### kubectl_keyring
+
+Path for the repository keyring
+
+#### Default value
+
+```YAML
+kubectl_keyring: /usr/share/keyrings/kubernetes-archive-keyring.gpg
 ```
 
 ### kubectl_ns_checksum
