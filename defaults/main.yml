@@ -87,4 +87,7 @@ kubectl_general_configs: []
 # @end
 kubectl_extra_configs: []
 
+# @var kubectl_keyring:description: Path for the repository keyring
+kubectl_keyring: /usr/share/keyrings/kubernetes-archive-keyring.gpg
+
 ...
