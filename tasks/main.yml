@@ -2,9 +2,9 @@
 ---
 - name: Download repo key
   when: kubectl_from_repository
-  get_url:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    dest: "{{ kubectl_keyring }}"
+  shell:
+    cmd: "curl -sSL 'https://packages.cloud.google.com/apt/doc/apt-key.gpg' | gpg --dearmor --output {{ kubectl_keyring }}"
+    creates: "{{ kubectl_keyring }}"
   tags:
     - kubectl
 
