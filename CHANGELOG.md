@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/rolehippie/kubectl/compare/v1.2.0...v1.2.1) (2023-05-22)
+
+
+### Bugfixes
+
+* correctly dearmor key ([f967bd6](https://github.com/rolehippie/kubectl/commit/f967bd6f7ff2ce119b3cef23b26f3c3698cc0b2a))
+
 ## [1.2.0](https://github.com/rolehippie/kubectl/compare/v1.1.0...v1.2.0) (2023-04-17)
 
 
