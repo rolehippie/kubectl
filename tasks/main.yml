@@ -1,7 +1,7 @@
 ---
 - name: Download repo key
   when: kubectl_from_repository
-  shell:
+  ansible.builtin.shell:
     cmd: "curl -sSL 'https://packages.cloud.google.com/apt/doc/apt-key.gpg' | gpg --dearmor --output {{ kubectl_keyring }}"
     creates: "{{ kubectl_keyring }}"
   tags:
@@ -9,7 +9,7 @@
 
 - name: Add apt repository
   when: kubectl_from_repository
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: deb [signed-by={{ kubectl_keyring }}] http://apt.kubernetes.io/ kubernetes-xenial main
     filename: kubernetes
     update_cache: True
@@ -21,7 +21,7 @@
   when:
     - kubectl_from_repository
     - kubectl_fixed_version
-  copy:
+  ansible.builtin.copy:
     content: |
       Explantion: Pin added by kubectl role
       Package: kubectl
@@ -36,7 +36,7 @@
 
 - name: Install required packages
   loop: "{{ ['kubectl', 'socat'] if kubectl_from_repository else ['socat'] }}"
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   tags:
@@ -44,7 +44,7 @@
 
 - name: Download release tarball
   when: not kubectl_from_repository
-  get_url:
+  ansible.builtin.get_url:
     url: '{{ kubectl_download }}'
     checksum: '{{ kubectl_checksum }}'
     dest: /usr/bin/kubectl
@@ -53,7 +53,7 @@
     - kubectl
 
 - name: Download ctx plugin
-  get_url:
+  ansible.builtin.get_url:
     url: '{{ kubectl_ctx_download }}'
     checksum: '{{ kubectl_ctx_checksum }}'
     dest: /usr/bin/kubectl-ctx
@@ -62,7 +62,7 @@
     - kubectl
 
 - name: Download ns plugin
-  get_url:
+  ansible.builtin.get_url:
     url: '{{ kubectl_ns_download }}'
     checksum: '{{ kubectl_ns_checksum }}'
     dest: /usr/bin/kubectl-ns
@@ -74,7 +74,7 @@
   loop: "{{ kubectl_general_configs + kubectl_extra_configs }}"
   loop_control:
     label: "{{ item.name }}"
-  file:
+  ansible.builtin.file:
     path: "{{ item.path | dirname }}"
     owner: "{{ item.owner | default('root') }}"
     group: "{{ item.group | default('root') }}"
@@ -88,7 +88,7 @@
   loop: "{{ kubectl_general_configs + kubectl_extra_configs }}"
   loop_control:
     label: "{{ item.name }}"
-  template:
+  ansible.builtin.template:
     src: kubeconfig.j2
     dest: "{{ item.path }}"
     owner: "{{ item.owner | default('root') }}"
@@ -99,14 +99,14 @@
 
 - name: Remove kubeconfig files
   when: item.state | default('present') == 'absent'
-  file:
+  ansible.builtin.file:
     path: "{{ item.path }}"
     state: absent
   tags:
     - kubectl
 
 - name: Write profile script
-  template:
+  ansible.builtin.template:
     src: profile.j2
     dest: /etc/profile.d/kubectl.sh
     owner: root
