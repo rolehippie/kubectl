@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.0](https://github.com/rolehippie/kubectl/compare/v1.2.1...v2.0.0) (2024-02-12)
+
+
+### Features
+
+* drop support for ubuntu 18.04 ([9f0e1f9](https://github.com/rolehippie/kubectl/commit/9f0e1f92cc875b7e2c8bb26fffd866ab2b386a5f))
+* used full qualified collection names ([5d222ab](https://github.com/rolehippie/kubectl/commit/5d222ab040bcf309451e5c363b80d9b3a84712bf))
+
 ## [1.2.1](https://github.com/rolehippie/kubectl/compare/v1.2.0...v1.2.1) (2023-05-22)
 
 
