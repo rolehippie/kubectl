@@ -3,7 +3,10 @@
 kubectl_from_repository: False
 
 # @var kubectl_version:description: Version of the kubectl release to install
-kubectl_version: 1.18.8
+kubectl_version: 1.29.2
+
+# @var kubectl_minor_version:description: Minor version used for repo selection
+kubectl_minor_version: "{{ kubectl_version.split('.')[0] }}.{{ kubectl_version.split('.')[1] }}"
 
 # @var kubectl_fixed_version:description: Pin version if installed from repository
 kubectl_fixed_version: False
@@ -18,7 +21,7 @@ kubectl_checksum: sha256:a076f5eff0710de94d1eb77bee458ea43b8f4d9572bbb3a3aec1edf
 kubectl_ctx_install: True
 
 # @var kubectl_ctx_version:description: Version of the kubectl ctx plugin release to install
-kubectl_ctx_version: 0.9.3
+kubectl_ctx_version: 0.9.5
 
 # @var kubectl_ctx_download:description: Download URL for the kubectl ctx plugin release
 kubectl_ctx_download: "https://github.com/ahmetb/kubectx/releases/download/v{{ kubectl_ctx_version }}/kubectx"
@@ -30,7 +33,7 @@ kubectl_ctx_checksum: sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e68
 kubectl_ns_install: True
 
 # @var kubectl_ns_version:description: Version of the kubectl ns plugin release to install
-kubectl_ns_version: 0.9.3
+kubectl_ns_version: 0.9.5
 
 # @var kubectl_ns_download:description: Download URL for the kubectl ns plugin release
 kubectl_ns_download: "https://github.com/ahmetb/kubectx/releases/download/v{{ kubectl_ns_version }}/kubens"
@@ -87,6 +90,12 @@ kubectl_general_configs: []
 kubectl_extra_configs: []
 
 # @var kubectl_keyring:description: Path for the repository keyring
-kubectl_keyring: /usr/share/keyrings/kubernetes-archive-keyring.gpg
+kubectl_keyring: /usr/share/keyrings/kubernetes-v{{ kubectl_minor_version }}-archive-keyring.gpg
+
+# @var kubectl_keyring:description: Path to legacy keyring which got to be removed
+kubectl_legacy_keyring: /usr/share/keyrings/kubernetes-archive-keyring.gpg
+
+# @var kubectl_legacy_repo:description: Legacy repository that got to be removed
+kubectl_legacy_repo: "deb [signed-by={{ kubectl_legacy_keyring }}] http://apt.kubernetes.io/ kubernetes-xenial main"
 
 ...
