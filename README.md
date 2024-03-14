@@ -56,7 +56,7 @@ Checksum for the kubectl release
 #### Default value
 
 ```YAML
-kubectl_checksum: sha256:a076f5eff0710de94d1eb77bee458ea43b8f4d9572bbb3a3aec1edf0dde0a3e7
+kubectl_checksum: sha256:bb04d9450d9c9fa120956c5cc7c8dfaa700297038ff9c941741e730b02bbd1f3
 ```
 
 ### kubectl_ctx_checksum
@@ -107,8 +107,7 @@ Download URL for the kubectl release
 #### Default value
 
 ```YAML
-kubectl_download: http://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version
-  }}/bin/linux/amd64/kubectl
+kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/darwin/amd64/kubectl
 ```
 
 ### kubectl_extra_configs
