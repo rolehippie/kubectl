@@ -28,6 +28,9 @@ Building and improving this Ansible role have been sponsored by my current and p
   - [kubectl_from_repository](#kubectl_from_repository)
   - [kubectl_general_configs](#kubectl_general_configs)
   - [kubectl_keyring](#kubectl_keyring)
+  - [kubectl_legacy_keyring](#kubectl_legacy_keyring)
+  - [kubectl_legacy_repo](#kubectl_legacy_repo)
+  - [kubectl_minor_version](#kubectl_minor_version)
   - [kubectl_ns_checksum](#kubectl_ns_checksum)
   - [kubectl_ns_download](#kubectl_ns_download)
   - [kubectl_ns_install](#kubectl_ns_install)
@@ -94,7 +97,7 @@ Version of the kubectl ctx plugin release to install
 #### Default value
 
 ```YAML
-kubectl_ctx_version: 0.9.3
+kubectl_ctx_version: 0.9.5
 ```
 
 ### kubectl_download
@@ -196,12 +199,42 @@ kubectl_general_configs:
 
 ### kubectl_keyring
 
-Path for the repository keyring
+Path to legacy keyring which got to be removed
 
 #### Default value
 
 ```YAML
-kubectl_keyring: /usr/share/keyrings/kubernetes-archive-keyring.gpg
+kubectl_keyring: /usr/share/keyrings/kubernetes-v{{ kubectl_minor_version }}-archive-keyring.gpg
+```
+
+### kubectl_legacy_keyring
+
+#### Default value
+
+```YAML
+kubectl_legacy_keyring: /usr/share/keyrings/kubernetes-archive-keyring.gpg
+```
+
+### kubectl_legacy_repo
+
+Legacy repository that got to be removed
+
+#### Default value
+
+```YAML
+kubectl_legacy_repo: deb [signed-by={{ kubectl_legacy_keyring }}] http://apt.kubernetes.io/
+  kubernetes-xenial main
+```
+
+### kubectl_minor_version
+
+Minor version used for repo selection
+
+#### Default value
+
+```YAML
+kubectl_minor_version: "{{ kubectl_version.split('.')[0] }}.{{ kubectl_version.split('.')[1]
+  }}"
 ```
 
 ### kubectl_ns_checksum
@@ -242,7 +275,7 @@ Version of the kubectl ns plugin release to install
 #### Default value
 
 ```YAML
-kubectl_ns_version: 0.9.3
+kubectl_ns_version: 0.9.5
 ```
 
 ### kubectl_version
@@ -252,7 +285,7 @@ Version of the kubectl release to install
 #### Default value
 
 ```YAML
-kubectl_version: 1.18.8
+kubectl_version: 1.29.2
 ```
 
 ## Discovered Tags
