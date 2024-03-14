@@ -12,10 +12,10 @@ kubectl_minor_version: "{{ kubectl_version.split('.')[0] }}.{{ kubectl_version.s
 kubectl_fixed_version: False
 
 # @var kubectl_download:description: Download URL for the kubectl release
-kubectl_download: http://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/bin/linux/amd64/kubectl
+kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/darwin/amd64/kubectl
 
 # @var kubectl_checksum:description: Checksum for the kubectl release
-kubectl_checksum: sha256:a076f5eff0710de94d1eb77bee458ea43b8f4d9572bbb3a3aec1edf0dde0a3e7
+kubectl_checksum: sha256:bb04d9450d9c9fa120956c5cc7c8dfaa700297038ff9c941741e730b02bbd1f3
 
 # @var kubectl_ctx_install:description: Install the kubectl ctx plugin
 kubectl_ctx_install: True
