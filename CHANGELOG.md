@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0](https://github.com/rolehippie/kubectl/compare/v2.0.0...v2.1.0) (2024-03-14)
+
+
+### Features
+
+* upgrade to latest versions and use new repositories ([d81b82a](https://github.com/rolehippie/kubectl/commit/d81b82ae398bdb1f8eb989485cf0b1005aa5be0e))
+
+
+### Bugfixes
+
+* use right download url for binary ([d4d0a86](https://github.com/rolehippie/kubectl/commit/d4d0a864414191b6d9f891515096375b0ea0ded8))
+
 ## [2.0.0](https://github.com/rolehippie/kubectl/compare/v1.2.1...v2.0.0) (2024-02-12)
 
 
