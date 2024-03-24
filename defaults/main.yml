@@ -6,7 +6,7 @@ kubectl_from_repository: False
 kubectl_version: 1.29.2
 
 # @var kubectl_minor_version:description: Minor version used for repo selection
-kubectl_minor_version: "{{ kubectl_version.split('.')[0] }}.{{ kubectl_version.split('.')[1] }}"
+kubectl_minor_version: "{{ (kubectl_version | string).split('.')[0] }}.{{ (kubectl_version | string).split('.')[1] }}"
 
 # @var kubectl_fixed_version:description: Pin version if installed from repository
 kubectl_fixed_version: False
