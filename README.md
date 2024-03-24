@@ -232,8 +232,8 @@ Minor version used for repo selection
 #### Default value
 
 ```YAML
-kubectl_minor_version: "{{ kubectl_version.split('.')[0] }}.{{ kubectl_version.split('.')[1]
-  }}"
+kubectl_minor_version: "{{ (kubectl_version | string).split('.')[0] }}.{{ (kubectl_version
+  | string).split('.')[1] }}"
 ```
 
 ### kubectl_ns_checksum
