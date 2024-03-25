@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/rolehippie/kubectl/compare/v2.1.0...v2.1.1) (2024-03-25)
+
+
+### Bugfixes
+
+* make sure version is a string for splitting ([5596b40](https://github.com/rolehippie/kubectl/commit/5596b409706fefa48125afba203c349c1489dc4f))
+
 ## [2.1.0](https://github.com/rolehippie/kubectl/compare/v2.0.0...v2.1.0) (2024-03-14)
 
 
