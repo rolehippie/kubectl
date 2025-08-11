@@ -1,4 +1,4 @@
-# kubectl
+# workspace
 
 [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/kubectl)
 [![General Workflow](https://github.com/rolehippie/kubectl/actions/workflows/general.yml/badge.svg)](https://github.com/rolehippie/kubectl/actions/workflows/general.yml)
@@ -56,7 +56,8 @@ Checksum for the kubectl release
 #### Default value
 
 ```YAML
-kubectl_checksum: sha256:bb04d9450d9c9fa120956c5cc7c8dfaa700297038ff9c941741e730b02bbd1f3
+kubectl_checksum: 
+  sha256:bb04d9450d9c9fa120956c5cc7c8dfaa700297038ff9c941741e730b02bbd1f3
 ```
 
 ### kubectl_ctx_checksum
@@ -66,7 +67,8 @@ Checksum for the kubectl ctx plugin release
 #### Default value
 
 ```YAML
-kubectl_ctx_checksum: sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e688fb8089fd4900
+kubectl_ctx_checksum: 
+  sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e688fb8089fd4900
 ```
 
 ### kubectl_ctx_download
@@ -76,8 +78,8 @@ Download URL for the kubectl ctx plugin release
 #### Default value
 
 ```YAML
-kubectl_ctx_download: https://github.com/ahmetb/kubectx/releases/download/v{{ kubectl_ctx_version
-  }}/kubectx
+kubectl_ctx_download: https://github.com/ahmetb/kubectx/releases/download/v{{ 
+  kubectl_ctx_version }}/kubectx
 ```
 
 ### kubectl_ctx_install
@@ -107,7 +109,8 @@ Download URL for the kubectl release
 #### Default value
 
 ```YAML
-kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/darwin/amd64/kubectl
+kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version 
+  }}/bin/darwin/amd64/kubectl
 ```
 
 ### kubectl_extra_configs
@@ -203,7 +206,8 @@ Path to legacy keyring which got to be removed
 #### Default value
 
 ```YAML
-kubectl_keyring: /usr/share/keyrings/kubernetes-v{{ kubectl_minor_version }}-archive-keyring.gpg
+kubectl_keyring: /usr/share/keyrings/kubernetes-v{{ kubectl_minor_version 
+  }}-archive-keyring.gpg
 ```
 
 ### kubectl_legacy_keyring
@@ -221,8 +225,8 @@ Legacy repository that got to be removed
 #### Default value
 
 ```YAML
-kubectl_legacy_repo: deb [signed-by={{ kubectl_legacy_keyring }}] http://apt.kubernetes.io/
-  kubernetes-xenial main
+kubectl_legacy_repo: deb [signed-by={{ kubectl_legacy_keyring }}] 
+  http://apt.kubernetes.io/ kubernetes-xenial main
 ```
 
 ### kubectl_minor_version
@@ -243,7 +247,8 @@ Checksum for the kubectl ns plugin release
 #### Default value
 
 ```YAML
-kubectl_ns_checksum: sha256:509c97c0882e688ae8fad8aa13524cc7c003e4883db447a905bdb47d64c13bdc
+kubectl_ns_checksum: 
+  sha256:509c97c0882e688ae8fad8aa13524cc7c003e4883db447a905bdb47d64c13bdc
 ```
 
 ### kubectl_ns_download
@@ -253,8 +258,8 @@ Download URL for the kubectl ns plugin release
 #### Default value
 
 ```YAML
-kubectl_ns_download: https://github.com/ahmetb/kubectx/releases/download/v{{ kubectl_ns_version
-  }}/kubens
+kubectl_ns_download: https://github.com/ahmetb/kubectx/releases/download/v{{ 
+  kubectl_ns_version }}/kubens
 ```
 
 ### kubectl_ns_install
@@ -290,7 +295,6 @@ kubectl_version: 1.29.2
 ## Discovered Tags
 
 **_kubectl_**
-
 
 ## Dependencies
 
