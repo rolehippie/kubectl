@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/rolehippie/kubectl/compare/v2.1.1...v2.2.0) (2025-10-14)
+
+
+### Features
+
+* apply new repo structure and update linting ([fda2127](https://github.com/rolehippie/kubectl/commit/fda2127cd3299c2655548692f36bb70a0fd16cc1))
+
 ## [2.1.1](https://github.com/rolehippie/kubectl/compare/v2.1.0...v2.1.1) (2024-03-25)
 
 
