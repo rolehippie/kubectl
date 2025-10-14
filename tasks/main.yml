@@ -1,18 +1,18 @@
 ---
 - name: Remove legacy repo
   when:
-    - kubectl_legacy_repo | default(False)
+    - kubectl_legacy_repo | length > 0
   ansible.builtin.apt_repository:
     repo: "{{ kubectl_legacy_repo }}"
     filename: kubernetes
-    update_cache: False
+    update_cache: false
     state: absent
   tags:
     - kubectl
 
 - name: Remove legacy keys
   when:
-    - kubectl_legacy_keyring | default(False)
+    - kubectl_legacy_keyring | length > 0
   ansible.builtin.file:
     path: "{{ kubectl_legacy_keyring }}"
     state: absent
@@ -20,10 +20,34 @@
     - kubectl
 
 - name: Download repo key
-  when: kubectl_from_repository
-  ansible.builtin.shell:
-    cmd: "curl -sSL 'https://pkgs.k8s.io/core:/stable:/v{{ kubectl_minor_version }}/deb/Release.key' | gpg --dearmor --output {{ kubectl_keyring }}"
-    creates: "{{ kubectl_keyring }}"
+  when:
+    - kubectl_from_repository
+  register: kubectl_key_download
+  ansible.builtin.get_url:
+    url: "https://pkgs.k8s.io/core:/stable:/v{{ kubectl_minor_version }}/deb/Release.key"
+    dest: "{{ kubectl_keyring }}.asc"
+    mode: u=rw,g=r,o=r
+    force: true
+  tags:
+    - kubectl
+
+- name: Check repo key
+  when:
+    - kubectl_from_repository
+  register: kubectl_key_status
+  ansible.builtin.stat:
+    path: "{{ kubectl_keyring }}"
+  tags:
+    - kubectl
+
+- name: Dearmor repo key
+  when:
+    - kubectl_from_repository
+    - kubectl_key_download.changed or not kubectl_key_status.stat.exists
+  register: kubectl_key_convert
+  changed_when: kubectl_key_convert.rc == 0
+  ansible.builtin.command:
+    cmd: "gpg --dearmor -o {{ kubectl_keyring }} {{ kubectl_keyring }}.asc"
   tags:
     - kubectl
 
@@ -32,7 +56,7 @@
   ansible.builtin.apt_repository:
     repo: deb [signed-by={{ kubectl_keyring }}] https://pkgs.k8s.io/core:/stable:/v{{ kubectl_minor_version }}/deb/ /
     filename: kubernetes
-    update_cache: True
+    update_cache: true
     state: present
   tags:
     - kubectl
@@ -63,7 +87,8 @@
     - kubectl
 
 - name: Download release tarball
-  when: not kubectl_from_repository
+  when:
+    - not kubectl_from_repository
   ansible.builtin.get_url:
     url: '{{ kubectl_download }}'
     checksum: '{{ kubectl_checksum }}'
@@ -104,7 +129,8 @@
     - kubectl
 
 - name: Create kubeconfig files
-  when: item.state | default('present') == 'present'
+  when:
+    - true if item.state is not defined else item.state == 'present'
   loop: "{{ kubectl_general_configs + kubectl_extra_configs }}"
   loop_control:
     label: "{{ item.name }}"
@@ -118,7 +144,8 @@
     - kubectl
 
 - name: Remove kubeconfig files
-  when: item.state | default('present') == 'absent'
+  when:
+    - false if item.state is not defined else item.state == 'absent'
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: absent

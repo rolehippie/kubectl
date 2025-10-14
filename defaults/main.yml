@@ -1,6 +1,6 @@
 ---
 # @var kubectl_version:description: Install kubectl from official repository
-kubectl_from_repository: False
+kubectl_from_repository: false
 
 # @var kubectl_version:description: Version of the kubectl release to install
 kubectl_version: 1.29.2
@@ -9,7 +9,7 @@ kubectl_version: 1.29.2
 kubectl_minor_version: "{{ (kubectl_version | string).split('.')[0] }}.{{ (kubectl_version | string).split('.')[1] }}"
 
 # @var kubectl_fixed_version:description: Pin version if installed from repository
-kubectl_fixed_version: False
+kubectl_fixed_version: false
 
 # @var kubectl_download:description: Download URL for the kubectl release
 kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/darwin/amd64/kubectl
@@ -18,7 +18,7 @@ kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/darwin/am
 kubectl_checksum: sha256:bb04d9450d9c9fa120956c5cc7c8dfaa700297038ff9c941741e730b02bbd1f3
 
 # @var kubectl_ctx_install:description: Install the kubectl ctx plugin
-kubectl_ctx_install: True
+kubectl_ctx_install: true
 
 # @var kubectl_ctx_version:description: Version of the kubectl ctx plugin release to install
 kubectl_ctx_version: 0.9.5
@@ -30,7 +30,7 @@ kubectl_ctx_download: "https://github.com/ahmetb/kubectx/releases/download/v{{ k
 kubectl_ctx_checksum: sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e688fb8089fd4900
 
 # @var kubectl_ns_install:description: Install the kubectl ns plugin
-kubectl_ns_install: True
+kubectl_ns_install: true
 
 # @var kubectl_ns_version:description: Version of the kubectl ns plugin release to install
 kubectl_ns_version: 0.9.5
