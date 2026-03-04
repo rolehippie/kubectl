@@ -1,6 +1,7 @@
 ---
 - name: Remove legacy repo
   when:
+    - kubectl_legacy_repo is not none
     - kubectl_legacy_repo | length > 0
   ansible.builtin.apt_repository:
     repo: "{{ kubectl_legacy_repo }}"
@@ -12,6 +13,7 @@
 
 - name: Remove legacy keys
   when:
+    - kubectl_legacy_keyring is not none
     - kubectl_legacy_keyring | length > 0
   ansible.builtin.file:
     path: "{{ kubectl_legacy_keyring }}"
@@ -91,7 +93,7 @@
     - not kubectl_from_repository
   ansible.builtin.get_url:
     url: '{{ kubectl_download }}'
-    checksum: '{{ kubectl_checksum }}'
+    checksum: '{{ kubectl_checksum if kubectl_checksum is not none else omit }}'
     dest: /usr/bin/kubectl
     mode: u=rwx,g=rx,o=rx
   tags:
@@ -100,7 +102,7 @@
 - name: Download ctx plugin
   ansible.builtin.get_url:
     url: '{{ kubectl_ctx_download }}'
-    checksum: '{{ kubectl_ctx_checksum }}'
+    checksum: '{{ kubectl_ctx_checksum if kubectl_ctx_checksum is not none else omit }}'
     dest: /usr/bin/kubectl-ctx
     mode: u=rwx,g=rx,o=rx
   tags:
@@ -109,7 +111,7 @@
 - name: Download ns plugin
   ansible.builtin.get_url:
     url: '{{ kubectl_ns_download }}'
-    checksum: '{{ kubectl_ns_checksum }}'
+    checksum: '{{ kubectl_ns_checksum if kubectl_ns_checksum is not none else omit }}'
     dest: /usr/bin/kubectl-ns
     mode: u=rwx,g=rx,o=rx
   tags:

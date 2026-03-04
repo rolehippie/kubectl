@@ -13,10 +13,13 @@ kubectl_minor_version: "{{ (kubectl_version | string).split('.')[0] }}.{{ (kubec
 kubectl_fixed_version: false
 
 # @var kubectl_download:description: Download URL for the kubectl release
-kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/darwin/amd64/kubectl
+kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ ansible_system | lower }}/{{ kubectl_arch }}/kubectl
+
+# @var kubectl_arch:description: Architecture for the kubectl release
+kubectl_arch: "{{ 'arm64' if ansible_architecture in ['aarch64', 'arm64'] else 'amd64' }}"
 
 # @var kubectl_checksum:description: Checksum for the kubectl release
-kubectl_checksum: sha256:bb04d9450d9c9fa120956c5cc7c8dfaa700297038ff9c941741e730b02bbd1f3
+kubectl_checksum:
 
 # @var kubectl_ctx_install:description: Install the kubectl ctx plugin
 kubectl_ctx_install: true
@@ -29,7 +32,7 @@ kubectl_ctx_version: 0.9.5
 kubectl_ctx_download: "https://github.com/ahmetb/kubectx/releases/download/v{{ kubectl_ctx_version }}/kubectx"
 
 # @var kubectl_ctx_checksum:description: Checksum for the kubectl ctx plugin release
-kubectl_ctx_checksum: sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e688fb8089fd4900
+kubectl_ctx_checksum:
 
 # @var kubectl_ns_install:description: Install the kubectl ns plugin
 kubectl_ns_install: true
@@ -42,7 +45,7 @@ kubectl_ns_version: 0.9.5
 kubectl_ns_download: "https://github.com/ahmetb/kubectx/releases/download/v{{ kubectl_ns_version }}/kubens"
 
 # @var kubectl_ns_checksum:description: Checksum for the kubectl ns plugin release
-kubectl_ns_checksum: sha256:509c97c0882e688ae8fad8aa13524cc7c003e4883db447a905bdb47d64c13bdc
+kubectl_ns_checksum:
 
 # @var kubectl_general_configs:description: List of general configs
 # @var kubectl_general_configs:example: >

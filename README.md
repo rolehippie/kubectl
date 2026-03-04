@@ -17,6 +17,7 @@ Building and improving this Ansible role have been sponsored by my current and p
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
+  - [kubectl_arch](#kubectl_arch)
   - [kubectl_checksum](#kubectl_checksum)
   - [kubectl_ctx_checksum](#kubectl_ctx_checksum)
   - [kubectl_ctx_download](#kubectl_ctx_download)
@@ -49,6 +50,17 @@ Building and improving this Ansible role have been sponsored by my current and p
 
 ## Default Variables
 
+### kubectl_arch
+
+Architecture for the kubectl release
+
+#### Default value
+
+```YAML
+kubectl_arch: "{{ 'arm64' if ansible_architecture in ['aarch64', 'arm64'] else 'amd64'
+  }}"
+```
+
 ### kubectl_checksum
 
 Checksum for the kubectl release
@@ -56,8 +68,7 @@ Checksum for the kubectl release
 #### Default value
 
 ```YAML
-kubectl_checksum: 
-  sha256:bb04d9450d9c9fa120956c5cc7c8dfaa700297038ff9c941741e730b02bbd1f3
+kubectl_checksum:
 ```
 
 ### kubectl_ctx_checksum
@@ -67,8 +78,7 @@ Checksum for the kubectl ctx plugin release
 #### Default value
 
 ```YAML
-kubectl_ctx_checksum: 
-  sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e688fb8089fd4900
+kubectl_ctx_checksum:
 ```
 
 ### kubectl_ctx_download
@@ -109,8 +119,8 @@ Download URL for the kubectl release
 #### Default value
 
 ```YAML
-kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version 
-  }}/bin/darwin/amd64/kubectl
+kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ 
+  ansible_system | lower }}/{{ kubectl_arch }}/kubectl
 ```
 
 ### kubectl_extra_configs
@@ -247,8 +257,7 @@ Checksum for the kubectl ns plugin release
 #### Default value
 
 ```YAML
-kubectl_ns_checksum: 
-  sha256:509c97c0882e688ae8fad8aa13524cc7c003e4883db447a905bdb47d64c13bdc
+kubectl_ns_checksum:
 ```
 
 ### kubectl_ns_download
