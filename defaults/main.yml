@@ -3,6 +3,7 @@
 kubectl_from_repository: false
 
 # @var kubectl_version:description: Version of the kubectl release to install
+# renovate: datasource=github-releases depName=kubernetes/kubernetes
 kubectl_version: 1.29.2
 
 # @var kubectl_minor_version:description: Minor version used for repo selection
@@ -21,6 +22,7 @@ kubectl_checksum: sha256:bb04d9450d9c9fa120956c5cc7c8dfaa700297038ff9c941741e730
 kubectl_ctx_install: true
 
 # @var kubectl_ctx_version:description: Version of the kubectl ctx plugin release to install
+# renovate: datasource=github-releases depName=ahmetb/kubectx
 kubectl_ctx_version: 0.9.5
 
 # @var kubectl_ctx_download:description: Download URL for the kubectl ctx plugin release
@@ -33,6 +35,7 @@ kubectl_ctx_checksum: sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e68
 kubectl_ns_install: true
 
 # @var kubectl_ns_version:description: Version of the kubectl ns plugin release to install
+# renovate: datasource=github-releases depName=ahmetb/kubectx
 kubectl_ns_version: 0.9.5
 
 # @var kubectl_ns_download:description: Download URL for the kubectl ns plugin release
