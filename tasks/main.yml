@@ -23,6 +23,7 @@
 
 - name: Download repo key
   when:
+    - ansible_distribution_version is version('24.04', '<')
     - kubectl_from_repository
   register: kubectl_key_download
   ansible.builtin.get_url:
@@ -35,6 +36,7 @@
 
 - name: Check repo key
   when:
+    - ansible_distribution_version is version('24.04', '<')
     - kubectl_from_repository
   register: kubectl_key_status
   ansible.builtin.stat:
@@ -44,6 +46,7 @@
 
 - name: Dearmor repo key
   when:
+    - ansible_distribution_version is version('24.04', '<')
     - kubectl_from_repository
     - kubectl_key_download.changed or not kubectl_key_status.stat.exists
   register: kubectl_key_convert
@@ -53,12 +56,28 @@
   tags:
     - kubectl
 
-- name: Add apt repository
-  when: kubectl_from_repository
+- name: Add legacy repo
+  when:
+    - ansible_distribution_version is version('24.04', '<')
+    - kubectl_from_repository
   ansible.builtin.apt_repository:
     repo: deb [signed-by={{ kubectl_keyring }}] https://pkgs.k8s.io/core:/stable:/v{{ kubectl_minor_version }}/deb/ /
     filename: kubernetes
     update_cache: true
+    state: present
+  tags:
+    - kubectl
+
+- name: Add apt repo
+  when:
+    - ansible_distribution_version is version('24.04', '>=')
+    - kubectl_from_repository
+  ansible.builtin.deb822_repository:
+    name: kubernetes
+    types: deb
+    uris: https://pkgs.k8s.io/core:/stable:/v{{ kubectl_minor_version }}/deb/
+    suites: /
+    signed_by: "https://pkgs.k8s.io/core:/stable:/v{{ kubectl_minor_version }}/deb/Release.key"
     state: present
   tags:
     - kubectl
@@ -84,6 +103,7 @@
   loop: "{{ ['kubectl', 'socat'] if kubectl_from_repository else ['socat'] }}"
   ansible.builtin.package:
     name: "{{ item }}"
+    update_cache: true
     state: present
   tags:
     - kubectl
@@ -132,7 +152,7 @@
 
 - name: Create kubeconfig files
   when:
-    - true if item.state is not defined else item.state == 'present'
+    - item.state is not defined or item.state == 'present'
   loop: "{{ kubectl_general_configs + kubectl_extra_configs }}"
   loop_control:
     label: "{{ item.name }}"
@@ -147,7 +167,7 @@
 
 - name: Remove kubeconfig files
   when:
-    - false if item.state is not defined else item.state == 'absent'
+    - item.state is defined and item.state == 'absent'
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: absent
