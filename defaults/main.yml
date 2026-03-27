@@ -26,7 +26,7 @@ kubectl_ctx_install: true
 
 # @var kubectl_ctx_version:description: Version of the kubectl ctx plugin release to install
 # renovate: datasource=github-releases depName=ahmetb/kubectx
-kubectl_ctx_version: 0.10.2
+kubectl_ctx_version: 0.11.0
 
 # @var kubectl_ctx_download:description: Download URL for the kubectl ctx plugin release
 kubectl_ctx_download: "https://github.com/ahmetb/kubectx/releases/download/v{{ kubectl_ctx_version }}/kubectx"
@@ -39,7 +39,7 @@ kubectl_ns_install: true
 
 # @var kubectl_ns_version:description: Version of the kubectl ns plugin release to install
 # renovate: datasource=github-releases depName=ahmetb/kubectx
-kubectl_ns_version: 0.10.2
+kubectl_ns_version: 0.11.0
 
 # @var kubectl_ns_download:description: Download URL for the kubectl ns plugin release
 kubectl_ns_download: "https://github.com/ahmetb/kubectx/releases/download/v{{ kubectl_ns_version }}/kubens"
