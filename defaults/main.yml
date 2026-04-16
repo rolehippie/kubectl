@@ -4,7 +4,7 @@ kubectl_from_repository: false
 
 # @var kubectl_version:description: Version of the kubectl release to install
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
-kubectl_version: 1.35.3
+kubectl_version: 1.35.4
 
 # @var kubectl_minor_version:description: Minor version used for repo selection
 kubectl_minor_version: "{{ (kubectl_version | string).split('.')[0] }}.{{ (kubectl_version | string).split('.')[1] }}"
