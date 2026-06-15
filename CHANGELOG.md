@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.6.2](https://github.com/rolehippie/kubectl/compare/v2.6.1...v2.6.2) (2026-06-15)
+
+### Dependencies
+
+* **patch:** update version prefix to v1.36.2 ([#54](https://github.com/rolehippie/kubectl/issues/54)) ([9c45ada](https://github.com/rolehippie/kubectl/commit/9c45adab0214d6109a73cf50600b1231dd719646))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([8703353](https://github.com/rolehippie/kubectl/commit/870335349028a37d50c3039df9ea61a0e7634197))
+* **flake:** updated lockfile [skip ci] ([05e61ee](https://github.com/rolehippie/kubectl/commit/05e61eeb70a6bc1c1792f3507f0ecbeb50a99fe2))
+* **flake:** updated lockfile [skip ci] ([14c0c56](https://github.com/rolehippie/kubectl/commit/14c0c560d9e9b115ac2498b43750ec1d1adc9cb5))
+
 ## [2.6.1](https://github.com/rolehippie/kubectl/compare/v2.6.0...v2.6.1) (2026-05-25)
 
 ### Dependencies
