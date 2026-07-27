@@ -1,5 +1,7 @@
 # Changelog
 
+## [2.7.0](https://github.com/rolehippie/kubectl/compare/v2.6.2...v2.7.0) (2026-07-27)
+
 ## [2.6.2](https://github.com/rolehippie/kubectl/compare/v2.6.1...v2.6.2) (2026-06-15)
 
 ### Dependencies
