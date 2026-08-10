@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.0](https://github.com/rolehippie/kubectl/compare/v2.7.0...v2.8.0) (2026-08-10)
+
+### Dependencies
+
+* **minor:** update dependency pipx:ansible-doctor to v8.4.0 ([#61](https://github.com/rolehippie/kubectl/issues/61)) ([446c0ed](https://github.com/rolehippie/kubectl/commit/446c0ed4bc61a79a1c6c29c83b02a14b2eda2b51))
+* **patch:** update dependency python to v3.14.7 ([#59](https://github.com/rolehippie/kubectl/issues/59)) ([be29fd9](https://github.com/rolehippie/kubectl/commit/be29fd9a5908a609dbf22f7d395375261940028b))
+
 ## [2.7.0](https://github.com/rolehippie/kubectl/compare/v2.6.2...v2.7.0) (2026-07-27)
 
 ## [2.6.2](https://github.com/rolehippie/kubectl/compare/v2.6.1...v2.6.2) (2026-06-15)
