@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.9.0](https://github.com/rolehippie/kubectl/compare/v2.8.0...v2.9.0) (2026-08-17)
+
+### Dependencies
+
+* **minor:** update dependency pipx:ansible-lint to v26.8.0 ([#64](https://github.com/rolehippie/kubectl/issues/64)) ([377b2ca](https://github.com/rolehippie/kubectl/commit/377b2cab46b5b81485172c973bf076af58772e49))
+* **minor:** update dependency pipx:molecule to v26.8.0 ([#65](https://github.com/rolehippie/kubectl/issues/65)) ([d96af51](https://github.com/rolehippie/kubectl/commit/d96af518e130bc7c5b9019649eb6a5f5bc0674aa))
+* **patch:** update dependency pipx:ansible-core to v2.21.3 ([#62](https://github.com/rolehippie/kubectl/issues/62)) ([29c5ea4](https://github.com/rolehippie/kubectl/commit/29c5ea41c6dc9cb730f1c5dbb3d88cdcb79ed956))
+* **patch:** update dependency pre-commit to v4.6.2 ([#63](https://github.com/rolehippie/kubectl/issues/63)) ([e0ea013](https://github.com/rolehippie/kubectl/commit/e0ea013398a736df73f0f8291961f6894853e6be))
+
 ## [2.8.0](https://github.com/rolehippie/kubectl/compare/v2.7.0...v2.8.0) (2026-08-10)
 
 ### Dependencies
