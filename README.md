@@ -57,7 +57,7 @@ Architecture for the kubectl release
 #### Default value
 
 ```YAML
-kubectl_arch: "{{ 'arm64' if ansible_architecture in ['aarch64', 'arm64'] else 'amd64' }}"
+kubectl_arch: "{{ 'arm64' if ansible_facts['architecture'] in ['aarch64', 'arm64'] else 'amd64' }}"
 ```
 
 ### kubectl_checksum
@@ -117,7 +117,7 @@ Download URL for the kubectl release
 #### Default value
 
 ```YAML
-kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ ansible_system | lower }}/{{ kubectl_arch }}/kubectl
+kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ ansible_facts['system'] | lower }}/{{ kubectl_arch }}/kubectl
 ```
 
 ### kubectl_extra_configs

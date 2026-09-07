@@ -13,10 +13,10 @@ kubectl_minor_version: "{{ (kubectl_version | string).split('.')[0] }}.{{ (kubec
 kubectl_fixed_version: false
 
 # @var kubectl_download:description: Download URL for the kubectl release
-kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ ansible_system | lower }}/{{ kubectl_arch }}/kubectl
+kubectl_download: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ ansible_facts['system'] | lower }}/{{ kubectl_arch }}/kubectl
 
 # @var kubectl_arch:description: Architecture for the kubectl release
-kubectl_arch: "{{ 'arm64' if ansible_architecture in ['aarch64', 'arm64'] else 'amd64' }}"
+kubectl_arch: "{{ 'arm64' if ansible_facts['architecture'] in ['aarch64', 'arm64'] else 'amd64' }}"
 
 # @var kubectl_checksum:description: Checksum for the kubectl release
 kubectl_checksum:
