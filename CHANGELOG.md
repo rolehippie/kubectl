@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.11.0](https://github.com/rolehippie/kubectl/compare/v2.10.0...v2.11.0) (2026-09-07)
+
+### Features
+
+* add separate requirements for molecule run ([2b92818](https://github.com/rolehippie/kubectl/commit/2b928182a9bb17da5ab7242196f168ec60489ba0))
+* use new required facts as attributes ([539448d](https://github.com/rolehippie/kubectl/commit/539448dda05c8e449c91ebc89f2054290fe2b79a))
+
 ## [2.10.0](https://github.com/rolehippie/kubectl/compare/v2.9.1...v2.10.0) (2026-08-31)
 
 ### Dependencies
