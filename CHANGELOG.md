@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.11.1](https://github.com/rolehippie/kubectl/compare/v2.11.0...v2.11.1) (2026-09-28)
+
+### Dependencies
+
+* **mise:** update dependency pipx:ansible-core to v2.21.4 ([#69](https://github.com/rolehippie/kubectl/issues/69)) ([6b72825](https://github.com/rolehippie/kubectl/commit/6b728258c311e2c814d32d47073188418c7d6c2a))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.2 ([#71](https://github.com/rolehippie/kubectl/issues/71)) ([24e8e95](https://github.com/rolehippie/kubectl/commit/24e8e95718e43bacffb8068df373a2632d5b07a2))
+* **mise:** update dependency pipx:ansible-lint to v26.9.0 ([#72](https://github.com/rolehippie/kubectl/issues/72)) ([32b25e6](https://github.com/rolehippie/kubectl/commit/32b25e6a7cc45bf2785ce0b77cadb62c0f8bbed8))
+* **mise:** update dependency pipx:molecule to v26.9.0 ([#73](https://github.com/rolehippie/kubectl/issues/73)) ([6ab4f7e](https://github.com/rolehippie/kubectl/commit/6ab4f7e079a03ecb8afe13ad7efd633612c82271))
+* **mise:** update dependency prek to v0.5.3 ([#70](https://github.com/rolehippie/kubectl/issues/70)) ([cc745f7](https://github.com/rolehippie/kubectl/commit/cc745f794109b636d9764581e0147ba1f06ebf56))
+* **patch:** update dependency kubernetes/kubernetes to v1.37.1 ([#74](https://github.com/rolehippie/kubectl/issues/74)) ([f124716](https://github.com/rolehippie/kubectl/commit/f12471604da7c202ee0d6af7ec8fadd5ff4ff566))
+
 ## [2.11.0](https://github.com/rolehippie/kubectl/compare/v2.10.0...v2.11.0) (2026-09-07)
 
 ### Features
